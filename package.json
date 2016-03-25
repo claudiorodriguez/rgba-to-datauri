@@ -1,10 +1,10 @@
 {
   "name": "rgba-to-datauri",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Converts a flat array of RGBA quadruplets into a PNG base64 encoded datauri.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/claudiorodriguez/rgba-to-datauri#readme",
   "dependencies": {
+    "chai": "^3.5.0",
     "datauri": "^1.0.4",
+    "mocha": "^2.4.5",
     "pngjs": "^2.2.0"
   }
 }
