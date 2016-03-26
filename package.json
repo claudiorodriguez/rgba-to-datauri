@@ -1,7 +1,7 @@
 {
   "name": "rgba-to-datauri",
-  "version": "0.0.1",
-  "description": "Converts a flat array of RGBA quadruplets into a PNG base64 encoded datauri.",
+  "version": "0.1.0",
+  "description": "Converts a flat array of RGBA quadruplets or a flattened buffer into a PNG base64 encoded datauri.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"

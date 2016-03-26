@@ -5,19 +5,29 @@ const Datauri = require('datauri');
 const datauri = new Datauri();
 
 const rgbaToDataUri = {
-  convert: function (rgbaArray, width, height) {
-    // TODO: validate input, accept buffers?
+  convert: function (rgbaInput, width, height) {
+    // TODO: validate input
     // TODO: add promises, don't do this all on sync
-    // Create a png image
-    let flat = [], x, r;
-    for (x = 0; x < width * height; x++) {
-      r = rgbaArray[x];
-      flat.push(r[0]);
-      flat.push(r[1]);
-      flat.push(r[2]);
-      flat.push(r[3]);
+    const SIZE = width * height * 4;
+    let data;
+
+    if (Buffer.isBuffer(rgbaInput)) {
+      // input is flattened buffer
+      if (rgbaInput.length !== SIZE) {
+        throw new Error('Invalid input buffer length, must be ' + SIZE + ' bytes');
+      }
+      data = rgbaInput;
+    } else {
+      // input is array of quadruplets
+      if (rgbaInput.length !== (width * height)) {
+        throw new Error('Invalid length of quadruplet array input, must be ' + (width * height));
+      }
+      data = Buffer(SIZE);
+      var idx = 0;
+      while ((idx = data.writeUInt8(rgbaInput[Math.floor(idx / 4)][idx % 4], idx)) < SIZE);
     }
-    let data = new Buffer(flat);
+
+    // Create png instance with metadata
     let png = new PNG();
     png.width = width;
     png.height = height;
