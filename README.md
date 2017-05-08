@@ -1,6 +1,7 @@
 # rgba-to-datauri
 
-[![Build Status](https://secure.travis-ci.org/claudiorodriguez/rgba-to-datauri.png)](http://travis-ci.org/claudiorodriguez/rgba-to-datauri)
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 
 Converts either a flat array of RGBA quadruplets (array of 4 integers) or a flattened Buffer ([r,g,b,a,r,g,b,a,...]) into a PNG base64 encoded datauri.
 
@@ -34,8 +35,8 @@ const array = [
 const buf = new Buffer([0,0,0,255,0,0,0,255,0,0,0,255,0,0,0,255]);
 
 // Should get a png base64 encoded datauri depicting a black 2px by 2px square
-let uriFromArray = convert(array, 2, 2);
-let uriFromBuffer = convert(buf, 2, 2);
+const uriFromArray = convert(array, 2, 2);
+const uriFromBuffer = convert(buf, 2, 2);
 ```
 
 ## Testing
@@ -54,3 +55,8 @@ If you wish to submit a pull request please update and/or create new tests for a
 ## License
 
 MIT - see [LICENSE](https://github.com/claudiorodriguez/rgba-to-datauri/blob/master/LICENSE)
+
+[travis-image]: https://travis-ci.org/claudiorodriguez/rgba-to-datauri.svg?branch=master
+[travis-url]: https://travis-ci.org/claudiorodriguez/rgba-to-datauri
+[coveralls-image]: https://coveralls.io/repos/github/claudiorodriguez/rgba-to-datauri/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/claudiorodriguez/rgba-to-datauri?branch=master
