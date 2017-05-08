@@ -24,7 +24,7 @@ $ npm install rgba-to-datauri
 **Node.JS**
 
 ```javascript
-const rgbaToDataUri = require('rgba-to-datauri');
+import {convert} from 'rgba-to-datauri';
 
 const array = [
   [0,0,0,255], [0,0,0,255],
@@ -34,8 +34,8 @@ const array = [
 const buf = new Buffer([0,0,0,255,0,0,0,255,0,0,0,255,0,0,0,255]);
 
 // Should get a png base64 encoded datauri depicting a black 2px by 2px square
-let uriFromArray = rgbaToDataUri.convert(array, 2, 2);
-let uriFromBuffer = rgbaToDataUri.convert(buf, 2, 2);
+let uriFromArray = convert(array, 2, 2);
+let uriFromBuffer = convert(buf, 2, 2);
 ```
 
 ## Testing

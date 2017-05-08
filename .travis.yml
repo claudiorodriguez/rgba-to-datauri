@@ -1,7 +1,8 @@
 language: node_js
 
 node_js:
-  - 5.0
+  - 6
+  - 7
   - stable
 
 before_script:
@@ -9,6 +10,10 @@ before_script:
 
 script:
   - "npm test"
+
+after_success:
+  - "./node_modules/.bin/jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  - npm run semantic-release
 
 notifications:
   email:
