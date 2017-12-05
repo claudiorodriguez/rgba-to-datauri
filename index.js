@@ -16,13 +16,15 @@ export const convert = (rgbaInput, width, height) => {
   if (Buffer.isBuffer(rgbaInput)) {
     // input is flattened buffer
     if (rgbaInput.length !== SIZE) {
-      throw new Error('Invalid input buffer length, must be ' + SIZE + ' bytes');
+      throw new Error(`Invalid input buffer length, must be ${SIZE} bytes`);
     }
     data = rgbaInput;
   } else {
     // input is array of quadruplets
-    if (rgbaInput.length !== width * height) {
-      throw new Error('Invalid length of quadruplet array input, must be ' + width * height);
+    const quadrupletLength = width * height;
+
+    if (rgbaInput.length !== quadrupletLength) {
+      throw new Error(`Invalid length of quadruplet array input, must be ${quadrupletLength}`);
     }
     data = Buffer.alloc(SIZE);
 
