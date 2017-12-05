@@ -1,7 +1,7 @@
 # rgba-to-datauri
 
 [![Build Status][travis-image]][travis-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
+[![Coverage Status][codecov-image]][codecov-url]
 
 Converts either a flat array of RGBA quadruplets (array of 4 integers) or a flattened Buffer ([r,g,b,a,r,g,b,a,...]) into a PNG base64 encoded datauri.
 
@@ -58,5 +58,5 @@ MIT - see [LICENSE](https://github.com/claudiorodriguez/rgba-to-datauri/blob/mas
 
 [travis-image]: https://travis-ci.org/claudiorodriguez/rgba-to-datauri.svg?branch=master
 [travis-url]: https://travis-ci.org/claudiorodriguez/rgba-to-datauri
-[coveralls-image]: https://coveralls.io/repos/github/claudiorodriguez/rgba-to-datauri/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/claudiorodriguez/rgba-to-datauri?branch=master
+[codecov-image]: https://codecov.io/gh/claudiorodriguez/rgba-to-datauri/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/claudiorodriguez/rgba-to-datauri
