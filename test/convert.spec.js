@@ -13,14 +13,18 @@ const testFlatArray = [
   [0, 255, 0, 255], [0, 255, 0, 255], [0, 255, 0, 255], [0, 255, 0, 255], [255, 0, 0, 255], [0, 0, 0, 255],
   [0, 0, 0, 255], [255, 0, 0, 255], [255, 0, 0, 255], [255, 0, 0, 255], [255, 0, 0, 255], [255, 0, 0, 255],
   [255, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255],
-  [0, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255],
+  [0, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255], [0, 0, 0, 255]
 ];
 
-const testFlatBuffer = Buffer(8 * 8 * 4);
+const testFlatBuffer = Buffer.alloc(8 * 8 * 4);
 let idx = 0;
 
-// eslint-disable-next-line curly
-while ((idx = testFlatBuffer.writeUInt8(testFlatArray[Math.floor(idx / 4)][idx % 4], idx)) < (8 * 8 * 4));
+while (idx < 8 * 8 * 4) {
+  idx = testFlatBuffer.writeUInt8(
+    testFlatArray[Math.floor(idx / 4)][idx % 4],
+    idx
+  );
+}
 
 const expectedUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAO0lEQVR4AYXB0Q0A' +
   'EBBEwbdyHem/BDUtER9HhBkB5iEYzJ2AYJHZWEyFTK7IlaTwEWRW4xAsFlcCzEMHq+YKSPX/JJQAAAAASUVORK5CYII=';

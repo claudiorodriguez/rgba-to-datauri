@@ -12,7 +12,7 @@ script:
   - "npm test"
 
 after_success:
-  - "./node_modules/.bin/jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  - "./node_modules/.bin/jest --coverage && ./node_modules/.bin/codecov"
   - npm run semantic-release
 
 notifications:
